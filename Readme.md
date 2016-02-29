@@ -13,10 +13,14 @@ Implementation is based on Spring Boot 1.3.2
 
     gradle bootRun
 
-If you want redirect logs into the file, use profile 'prodenv' to run with dailyRollingFileAppender.
-Logs will be redirected into file logs/spring-mvc-logger.log as configured in logback-spring.xml.
+If you want to redirect logs into the file, be sure you run appllicaton with 'prodenv' profile.
+It will include dailyRollingFileAppender configuration from logback-spring.xml file.
+Logs will be redirected into file logs/spring-mvc-logger.log as configured in logback-spring.xml and won't be displayed in console.
 
-    gradle bootRun spring.active.profile=prodenv
+    export SPRING_PROFILES_ACTIVE=prodenv
+    gradle bootRun
+    
+If you want your logs in console again, be sure you run you application with 'default' profile as defined in logback-spring.xml
 
 ## Logging of request and response with Spring MVC
 
